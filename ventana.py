@@ -44,7 +44,7 @@ class Ventana:
 	textoNoAgresivo=0
 	textoClase=0
 
-	archivo="C:/Users/bassoldier/pyAudioAnalysis/pyAudioAnalysis/grabacion.wav"
+	archivo="C:/Users/bassoldier/pyAudioAnalysis/pyAudioAnalysis/"
 
 	def crearVentana(self):
 		self.raiz.title('DETECTOR DE AGRESIVIDAD EN VOZ')
@@ -152,7 +152,7 @@ class Ventana:
 	    CHANNELS=1
 	    RATE=44100
 	    act_proceso=True
-	    t1=threading.Thread(target=self.grabacion, args=(FORMAT,CHANNELS,RATE,self.CHUNK,audio,self.archivo))
+	    t1=threading.Thread(target=self.grabacion, args=(FORMAT,CHANNELS,RATE,self.CHUNK,audio,self.archivo+"grabacion.wav"))
 	    t=threading.Thread(target=self.cuenta)
 	    t1.start()
 	    t.start()
@@ -192,9 +192,9 @@ class Ventana:
 
 	    self.clear_contador()
 	    audio=pyaudio.PyAudio()
-	    if self.archivo!="":
+	    if self.archivo + "grabacion.wav" !="":
 	        reproduciendo=True
-	        f = wave.open(self.archivo,"rb")
+	        f = wave.open(self.archivo + "grabacion.wav","rb")
 	        stream = audio.open(format = audio.get_format_from_width(f.getsampwidth()),  
 	                    channels = f.getnchannels(),  
 	                    rate = f.getframerate(),
@@ -241,7 +241,7 @@ class Ventana:
 	    self.insertarGrafico()
 	    detector=DetectorAgr()
 
-	    resultado=detector.procesar(self.archivo, variable.get())
+	    resultado=detector.procesar(self.archivo + "grabacion.wav", variable.get())
 
 	    textoAgresivo.delete(0,END)
 	    textoNoAgresivo.delete(0,END)
@@ -301,7 +301,7 @@ class Ventana:
 
 
 	def insertarGrafico(self):
-		muestreo, sonido = waves.read(self.archivo)
+		muestreo, sonido = waves.read(self.archivo + "grabacion.wav")
 
 		# canales: monofónico o estéreo
 		tamano = np.shape(sonido)
