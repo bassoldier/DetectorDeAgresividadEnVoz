@@ -3,16 +3,17 @@ from pyAudioAnalysis import audioTrainTest as aT
 class DetectorAgr:
     
     def procesar(self, ruta, corpus):
+        userPath="C:/Users/bassoldier/pyAudioAnalysis/pyAudioAnalysis/"
         if corpus == 'Corpus Chileno':
-            model="C:/Users/bassoldier/pyAudioAnalysis/pyAudioAnalysis/gbSenticChile"
+            model=userPath + "gbSenticChile"
             print("Corpus Chileno")
 
         if corpus == 'Corpus Híbrido':
-            model="C:/Users/bassoldier/pyAudioAnalysis/pyAudioAnalysis/gbSentic"
+            model=userPath + "gbSentic"
             print("Corpus Híbrido")
 
         if corpus == 'Corpus Británico (SAVEE)':
-            model="C:/Users/bassoldier/pyAudioAnalysis/pyAudioAnalysis/gbSenticSavee"
+            model=userPath + "gbSenticSavee"
             print("Corpus SAVEE")
 
         resultado=aT.fileClassification(ruta, model,"gradientboosting")
@@ -23,6 +24,7 @@ class DetectorAgr:
             sentimiento="NO AGRESIVO"
 
         print(resultado)
+        print(model)
         print("\n Este audio es catalogado como: " + sentimiento + "\n")
         print("Posee un "+ str(resultado[1][0]) + " de Agresividad y un " + str(resultado[1][1]) + " de NO AGRESIVIDAD")
 
