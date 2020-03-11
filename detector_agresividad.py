@@ -16,7 +16,7 @@ class DetectorAgr:
             model=userPath + "gbSenticSavee"
             print("Corpus SAVEE")
 
-        resultado=aT.fileClassification(ruta, model,"gradientboosting")
+        resultado=aT.file_classification(ruta, model,"gradientboosting")
 
         if resultado[0]==0.0:
             sentimiento="AGRESIVO"
