@@ -11,7 +11,7 @@ from pyAudioAnalysis import audioTrainTest as aT
 #aT.featureAndTrain(["SELECCION/AGRESIVOS/","SELECCION/NO_AGRESIVOS/"], 1.0, 0.10, 0.020, 0.020, "svm", "svmSentimiento", False)
 
 #GRADIENT BOOSTING
-aT.featureAndTrain(["SELECCION/AGRESIVOS/","SELECCION/NO_AGRESIVOS/"], 1.0, 0.10, 0.020, 0.020, "gradientboosting", "gbSentic", False)
+aT.extract_features_and_train(["SELECCION/AGRESIVOS/","SELECCION/NO_AGRESIVOS/"], 1.0, 0.10, 0.020, 0.020, "gradientboosting", "gbSentic", False)
 
 #aT.featureAndTrain(["SELECCION/CHILE/AGRESIVOS/","SELECCION/CHILE/NO_AGRESIVOS/"], 1.0, 0.10, 0.020, 0.020, "gradientboosting", "gbSenticChile", False)
 
